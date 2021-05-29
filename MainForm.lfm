@@ -1,0 +1,375 @@
+object Form1: TForm1
+  Left = 801
+  Height = 1095
+  Top = 442
+  Width = 1386
+  Caption = 'YAE'
+  ClientHeight = 1061
+  ClientWidth = 1386
+  Color = clBtnFace
+  DesignTimePPI = 168
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Tahoma'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.0.6'
+  object Splitter1: TSplitter
+    Left = 185
+    Height = 917
+    Top = 101
+    Width = 3
+  end
+  object CoolBar1: TCoolBar
+    Left = 0
+    Height = 101
+    Top = 0
+    Width = 1386
+    AutoSize = True
+    Bands = <    
+      item
+        Control = Panel1
+        Text = 'Note'
+        Width = 840
+      end    
+      item
+        Control = ToolBar1
+        Text = 'Toolbar'
+        Width = 840
+      end    
+      item
+        Control = Panel4
+        Text = 'Address'
+        Width = 840
+      end>
+    object Panel1: TPanel
+      AnchorSideLeft.Control = CoolBar1
+      AnchorSideTop.Control = CoolBar1
+      Left = 24
+      Height = 25
+      Top = 5
+      Width = 811
+      BorderSpacing.Left = 22
+      BorderSpacing.Top = 3
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 811
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 23
+        Height = 13
+        Top = 7
+        Width = 417
+        Caption = 'This one writes a file, yae.dat in every special folder and it keeps several extra data there'
+        Font.Color = clWindow
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 22
+        Height = 19
+        Top = 6
+        Width = 627
+        Caption = 'This one writes a file, yae.dat in every special folder and it keeps several extra data there'
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object ToolBar1: TToolBar
+      AnchorSideLeft.Control = CoolBar1
+      AnchorSideTop.Control = CoolBar1
+      Left = 24
+      Height = 25
+      Top = 38
+      Width = 811
+      Align = alNone
+      BorderSpacing.Left = 22
+      BorderSpacing.Top = 36
+      Caption = 'ToolBar1'
+      EdgeBorders = []
+      TabOrder = 1
+    end
+    object Panel4: TPanel
+      AnchorSideLeft.Control = CoolBar1
+      AnchorSideTop.Control = CoolBar1
+      Left = 24
+      Height = 25
+      Top = 71
+      Width = 811
+      BorderSpacing.Left = 22
+      BorderSpacing.Top = 69
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 811
+      TabOrder = 2
+      OnResize = Panel4Resize
+      object SpeedButton1: TSpeedButton
+        Left = 246
+        Height = 22
+        Top = 0
+        Width = 23
+        Flat = True
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          33333333333333333333333333333333333333333333333333FF333333333333
+          3000333333FFFFF3F77733333000003000B033333777773777F733330BFBFB00
+          E00033337FFF3377F7773333000FBFB0E000333377733337F7773330FBFBFBF0
+          E00033F7FFFF3337F7773000000FBFB0E000377777733337F7770BFBFBFBFBF0
+          E00073FFFFFFFF37F777300000000FB0E000377777777337F7773333330BFB00
+          000033333373FF77777733333330003333333333333777333333333333333333
+          3333333333333333333333333333333333333333333333333333333333333333
+          3333333333333333333333333333333333333333333333333333
+        }
+        NumGlyphs = 2
+        OnClick = SpeedButton1Click
+      end
+      object txtAddress: TEdit
+        Left = 0
+        Height = 27
+        Top = 0
+        Width = 249
+        OnKeyPress = txtAddressKeyPress
+        TabOrder = 0
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 917
+    Top = 101
+    Width = 185
+    Align = alLeft
+    ClientHeight = 917
+    ClientWidth = 185
+    TabOrder = 1
+    object TreeView1: TTreeView
+      Left = 1
+      Height = 915
+      Top = 1
+      Width = 183
+      Align = alClient
+      HideSelection = False
+      Indent = 19
+      TabOrder = 0
+      OnChange = TreeView1Change
+      OnDeletion = TreeView1Deletion
+      OnExpanding = TreeView1Expanding
+      Options = [tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+    end
+  end
+  object Panel3: TPanel
+    Left = 188
+    Height = 917
+    Top = 101
+    Width = 1198
+    Align = alClient
+    ClientHeight = 917
+    ClientWidth = 1198
+    TabOrder = 2
+    object Splitter2: TSplitter
+      Cursor = crVSplit
+      Left = 1
+      Height = 3
+      Top = 794
+      Width = 1196
+      Align = alBottom
+      ResizeAnchor = akBottom
+    end
+    object panError: TPanel
+      Left = 1
+      Height = 793
+      Top = 1
+      Width = 1196
+      Align = alClient
+      Caption = '404'
+      TabOrder = 1
+      Visible = False
+    end
+    object ListView1: TListView
+      Left = 1
+      Height = 793
+      Top = 1
+      Width = 1196
+      Align = alClient
+      Columns = <      
+        item
+          Caption = 'Name'
+          Width = 200
+        end      
+        item
+          Caption = 'Extention'
+        end      
+        item
+          Caption = 'Size'
+          Width = 100
+        end      
+        item
+          Caption = 'Modified'
+          Width = 150
+        end      
+        item
+          Caption = 'Attr'
+        end>
+      HideSelection = False
+      MultiSelect = True
+      RowSelect = True
+      SmallImages = ImageList1
+      TabOrder = 0
+      ViewStyle = vsReport
+      OnChange = ListView1Change
+      OnColumnClick = ListView1ColumnClick
+      OnCompare = ListView1Compare
+      OnContextPopup = ListView1ContextPopup
+      OnDblClick = ListView1DblClick
+      OnDeletion = ListView1Deletion
+    end
+    object panCustom: TPanel
+      Left = 1
+      Height = 119
+      Top = 797
+      Width = 1196
+      Align = alBottom
+      Caption = 'panCustom'
+      ClientHeight = 119
+      ClientWidth = 1196
+      TabOrder = 2
+      object ListBox1: TListBox
+        Left = 1
+        Height = 117
+        Top = 1
+        Width = 121
+        Align = alLeft
+        BorderStyle = bsNone
+        Font.CharSet = GREEK_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Items.Strings = (
+          'Notes'
+          'Version Information'
+          'Events'
+        )
+        ItemHeight = 13
+        OnClick = ListBox1Click
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Notebook1: TNotebook
+        Left = 122
+        Height = 117
+        Top = 1
+        Width = 1073
+        Align = alClient
+        TabOrder = 1
+      end
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 43
+    Top = 1018
+    Width = 1386
+    Panels = <>
+    SimplePanel = False
+  end
+  object ImageList1: TImageList
+    BkColor = clSilver
+    left = 96
+    top = 187
+    Bitmap = {
+      4C69020000001000000010000000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FFC0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F800FF00F800FF00F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FFC0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F800FF00F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FF008000FF0080
+      00FFC0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FF008000FF008000FFC0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FF008000FFC0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C00000F800FF00F800FF008000FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000008000FF008000FFC0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C00000F800FF00F800FFC0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FFC0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F800FF00F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FFC0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C00000F800FF00F800FF00F8
+      00FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FF00F800FFC0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000008000FF0080
+      00FF00F800FF00F800FF00F800FF00F800FF008000FF008000FF008000FF0080
+      00FFC0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C00000F800FF00F800FF00F800FF00F800FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000008000FF008000FF008000FF008000FFC0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000
+    }
+  end
+  object MainMenu1: TMainMenu
+    left = 408
+    top = 264
+    object File1: TMenuItem
+      Caption = '&File'
+      object NewWindow1: TMenuItem
+        Caption = 'New Window'
+        OnClick = NewWindow1Click
+      end
+    end
+    object Refresh1: TMenuItem
+      Caption = 'View'
+      object Refresh2: TMenuItem
+        Caption = 'Refresh'
+        ShortCut = 116
+        OnClick = SpeedButton1Click
+      end
+    end
+  end
+end

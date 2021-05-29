@@ -1,0 +1,157 @@
+object Form2: TForm2
+  Left = 481
+  Top = 401
+  BorderStyle = bsNone
+  Caption = 'Form2'
+  ClientHeight = 282
+  ClientWidth = 278
+  Color = 14869218
+  Font.Charset = GREEK_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Verdana'
+  Font.Style = []
+  KeyPreview = True
+  OnDeactivate = FormDeactivate
+  OnKeyPress = FormKeyPress
+  PixelsPerInch = 96
+  object Shape1: TShape
+    Left = 0
+    Top = 0
+    Width = 278
+    Height = 282
+    Align = alClient
+    Brush.Color = 14869218
+  end
+  object Shape2: TShape
+    Left = 0
+    Top = 102
+    Width = 276
+    Height = 2
+    Anchors = [akLeft, akTop, akRight]
+    Brush.Color = clGray
+  end
+  object SpeedButton3: TSpeedButton
+    Left = 248
+    Top = 32
+    Width = 20
+    Height = 19
+    Hint = 'Delete File'
+    Flat = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      7777777777777777777777707777777777077700077777777777770000777777
+      7077777000777777077777770007777007777777700077007777777777000007
+      7777777777700077777777777700000777777777700077007777777000077770
+      0777770000777777007777000777777777077777777777777777}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton3Click
+  end
+  object SpeedButton4: TSpeedButton
+    Left = 228
+    Top = 32
+    Width = 20
+    Height = 19
+    Hint = 'Launch File'
+    Flat = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      77777777777777777777000000000007777700333333333077770B0333333333
+      07770FB03333333330770BFB0333333333070FBFB000000000000BFBFBFBFB07
+      77770FBFBFBFBF0777770BFB0000000777777000777777770007777777777777
+      7007777777770777070777777777700077777777777777777777}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton4Click
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 188
+    Top = 32
+    Width = 20
+    Height = 19
+    Hint = 'OK'
+    Flat = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000C40E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      7777777744777777777777742247777777777742222477777777742222224777
+      77774222A22224777777222A7A2224777777A2A777A2224777777A77777A2224
+      777777777777A2224777777777777A2224777777777777A2224777777777777A
+      2224777777777777A2247777777777777A2277777777777777A7}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton1Click
+  end
+  object chkR: TCheckBox
+    Left = 8
+    Top = 32
+    Width = 81
+    Height = 17
+    AllowGrayed = True
+    Caption = 'Read Only'
+    TabOrder = 0
+  end
+  object chkH: TCheckBox
+    Left = 8
+    Top = 64
+    Width = 65
+    Height = 17
+    AllowGrayed = True
+    Caption = 'Hidden'
+    TabOrder = 1
+  end
+  object chkS: TCheckBox
+    Left = 8
+    Top = 48
+    Width = 73
+    Height = 17
+    AllowGrayed = True
+    Caption = 'System'
+    TabOrder = 2
+  end
+  object chkA: TCheckBox
+    Left = 8
+    Top = 80
+    Width = 73
+    Height = 17
+    AllowGrayed = True
+    Caption = 'Archive'
+    TabOrder = 3
+  end
+  object txtName: TEdit
+    Left = 8
+    Top = 8
+    Width = 261
+    Height = 17
+    Anchors = [akLeft, akTop, akRight]
+    BorderStyle = bsNone
+    TabOrder = 4
+    Text = 'txtName'
+  end
+  object ListBox1: TListBox
+    Left = 1
+    Top = 104
+    Width = 276
+    Height = 177
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    BorderStyle = bsNone
+    ItemHeight = 13
+    Items.Strings = (
+      'Menu Item 1'
+      'Menu Item2'
+      '---'
+      'Menu Item 3')
+    TabOrder = 5
+    OnClick = ListBox1Click
+    OnMouseMove = ListBox1MouseMove
+  end
+end
