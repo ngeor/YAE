@@ -23,8 +23,7 @@ type
     Size: integer;
     Attr: integer;
     Time: TDateTime;
-    constructor Create(const AName, AInPath: string; ASize, AAttr: integer;
-      ATime: TDateTime); overload;
+    constructor Create(const AName, AInPath: string; ASize, AAttr: integer; ATime: TDateTime); overload;
     constructor Create(const FullPath: string); overload;
     property Path: string read GetPath write SetPath;
     property Extention: string read GetExtention;
@@ -82,8 +81,7 @@ end;
 
 { TMyListItemData }
 
-constructor TMyListItemData.Create(const AName, AInPath: string;
-  ASize, AAttr: integer; ATime: TDateTime);
+constructor TMyListItemData.Create(const AName, AInPath: string; ASize, AAttr: integer; ATime: TDateTime);
 begin
   inherited Create;
   Name := AName;
