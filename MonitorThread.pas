@@ -19,8 +19,7 @@ type
     NotifyFilter: integer;
     hWnd: HWND;
     msg2Send: UINT;
-    constructor Create(ahwnd: HWND; amsg2Send: UINT; const aPath: string;
-      aWST: boolean; aNF: integer);
+    constructor Create(ahwnd: HWND; amsg2Send: UINT; const aPath: string; aWST: boolean; aNF: integer);
   end;
 
 
@@ -41,8 +40,7 @@ implementation
 
 { TMonitorThread }
 
-constructor TMonitorThread.Create(ahwnd: HWND; amsg2Send: UINT;
-  const aPath: string; aWST: boolean; aNF: integer);
+constructor TMonitorThread.Create(ahwnd: HWND; amsg2Send: UINT; const aPath: string; aWST: boolean; aNF: integer);
 begin
   inherited Create(True);
   FreeOnTerminate := False;

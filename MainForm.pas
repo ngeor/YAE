@@ -44,16 +44,13 @@ type
     NewWindow1: TMenuItem;
     ComboBox1: TComboBox;
     procedure SpeedButton1Click(Sender: TObject);
-    procedure ListView1ContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: boolean);
+    procedure ListView1ContextPopup(Sender: TObject; MousePos: TPoint; var Handled: boolean);
     procedure FormCreate(Sender: TObject);
     procedure txtAddressKeyPress(Sender: TObject; var Key: char);
-    procedure ListView1Change(Sender: TObject; Item: TListItem;
-      Change: TItemChange);
+    procedure ListView1Change(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure ListBox1Click(Sender: TObject);
     procedure ListView1Deletion(Sender: TObject; Item: TListItem);
-    procedure ListView1Compare(Sender: TObject; Item1, Item2: TListItem;
-      Data: integer; var Compare: integer);
+    procedure ListView1Compare(Sender: TObject; Item1, Item2: TListItem; Data: integer; var Compare: integer);
     procedure ListView1ColumnClick(Sender: TObject; Column: TListColumn);
     procedure ListView1DblClick(Sender: TObject);
     procedure TreeView1Deletion(Sender: TObject; Node: TTreeNode);
@@ -61,8 +58,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure Panel4Resize(Sender: TObject);
     procedure NewWindow1Click(Sender: TObject);
-    procedure TreeView1Expanding(Sender: TObject; Node: TTreeNode;
-      var AllowExpansion: boolean);
+    procedure TreeView1Expanding(Sender: TObject; Node: TTreeNode; var AllowExpansion: boolean);
     procedure SpeedButton2Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
   private
@@ -123,8 +119,7 @@ begin
         with ListView1.Items.Add do
         begin
           Caption := sr.Name;
-          Data := TMyListItemData.Create(sr.Name, FPath, sr.Size, sr.Attr,
-            FileDateToDateTime(sr.Time));
+          Data := TMyListItemData.Create(sr.Name, FPath, sr.Size, sr.Attr, FileDateToDateTime(sr.Time));
           SubItems.Add(TMyListItemData(Data).Extention);
           if sr.Attr and faDirectory = 0 then
             SubItems.Add(FormatBytes(sr.Size))
@@ -140,9 +135,8 @@ begin
     ListView1.AlphaSort;
   end;
 
-  FListMonitor := TMonitorThread.Create(Handle, WM_USER + 1,
-    IncludeTrailingBackslash(FPath), False, FILE_NOTIFY_CHANGE_FILE_NAME or
-    FILE_NOTIFY_CHANGE_DIR_NAME or FILE_NOTIFY_CHANGE_ATTRIBUTES or
+  FListMonitor := TMonitorThread.Create(Handle, WM_USER + 1, IncludeTrailingBackslash(FPath),
+    False, FILE_NOTIFY_CHANGE_FILE_NAME or FILE_NOTIFY_CHANGE_DIR_NAME or FILE_NOTIFY_CHANGE_ATTRIBUTES or
     FILE_NOTIFY_CHANGE_SIZE or FILE_NOTIFY_CHANGE_LAST_WRITE);
 end;
 
@@ -164,8 +158,7 @@ begin
   end;
 end;
 
-procedure TForm1.ListView1ContextPopup(Sender: TObject; MousePos: TPoint;
-  var Handled: boolean);
+procedure TForm1.ListView1ContextPopup(Sender: TObject; MousePos: TPoint; var Handled: boolean);
 var
   pt: TPoint;
 begin
@@ -224,17 +217,15 @@ begin
 end;
 
 
-procedure TForm1.ListView1Compare(Sender: TObject; Item1, Item2: TListItem;
-  Data: integer; var Compare: integer);
+procedure TForm1.ListView1Compare(Sender: TObject; Item1, Item2: TListItem; Data: integer; var Compare: integer);
 begin
   case FSortKey of
     0: Compare := lstrcmp(PChar(Item1.Caption), PChar(Item2.Caption)) * FSortOrder;
     1: Compare := lstrcmp(PChar(TMyListItemData(Item1.Data).Extention),
         PChar(TMyListItemData(Item2.Data).Extention)) * FSortOrder;
-    2: Compare := CompareInt(TMyListItemData(Item1.Data).Size,
-        TMyListItemData(Item2.Data).Size) * FSortOrder;
-    3: Compare := CompareDateTime(TMyListItemData(Item1.Data).Time,
-        TMyListItemData(Item2.Data).Time) * FSortOrder;
+    2: Compare := CompareInt(TMyListItemData(Item1.Data).Size, TMyListItemData(Item2.Data).Size) * FSortOrder;
+    3: Compare := CompareDateTime(TMyListItemData(Item1.Data).Time, TMyListItemData(Item2.Data).Time) *
+        FSortOrder;
     4: Compare := CompareText(Item1.SubItems[3], Item2.SubItems[3]) * FSortOrder;
     else
       Compare := 0;
@@ -418,8 +409,7 @@ begin
   Parent.AlphaSort;
 end;
 
-procedure TForm1.TreeView1Expanding(Sender: TObject; Node: TTreeNode;
-  var AllowExpansion: boolean);
+procedure TForm1.TreeView1Expanding(Sender: TObject; Node: TTreeNode; var AllowExpansion: boolean);
 begin
   if Node.HasChildren and (Node.GetFirstChild = nil) then
     BuildOneTreeLevel(Node);
