@@ -45,14 +45,14 @@ type
     ComboBox1: TComboBox;
     procedure SpeedButton1Click(Sender: TObject);
     procedure ListView1ContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: boolean);
+      var Handled: Boolean);
     procedure FormCreate(Sender: TObject);
-    procedure txtAddressKeyPress(Sender: TObject; var Key: char);
+    procedure txtAddressKeyPress(Sender: TObject; var Key: Char);
     procedure ListView1Change(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure ListBox1Click(Sender: TObject);
     procedure ListView1Deletion(Sender: TObject; Item: TListItem);
     procedure ListView1Compare(Sender: TObject; Item1, Item2: TListItem;
-      Data: integer; var Compare: integer);
+      Data: Integer; var Compare: Integer);
     procedure ListView1ColumnClick(Sender: TObject; Column: TListColumn);
     procedure ListView1DblClick(Sender: TObject);
     procedure TreeView1Deletion(Sender: TObject; Node: TTreeNode);
@@ -61,17 +61,17 @@ type
     procedure Panel4Resize(Sender: TObject);
     procedure NewWindow1Click(Sender: TObject);
     procedure TreeView1Expanding(Sender: TObject; Node: TTreeNode;
-      var AllowExpansion: boolean);
+      var AllowExpansion: Boolean);
     procedure SpeedButton2Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
   private
-    FPath: string;
-    FSortKey, FSortOrder: integer;
+    FPath: String;
+    FSortKey, FSortOrder: Integer;
     FListMonitor: TMonitorThread;
     procedure BuildListView;
     procedure BuildTreeRoot;
     procedure BuildOneTreeLevel(Parent: TTreeNode);
-    function GetNodePath(Node: TTreeNode): string;
+    function GetNodePath(Node: TTreeNode): String;
   protected
     procedure WMListViewChanged(var Msg: TMessage); message WM_USER + 1;
   public
@@ -87,12 +87,12 @@ uses prop1, engine;
 
 {$R *.lfm}
 
-function AttrToStr(attr: integer): string;
+function AttrToStr(attr: Integer): String;
 const
-  fa: array [1..6] of char = ('R', 'H', 'S', 'V', 'D', 'A');
-  ma: array [1..6] of integer = (1, 2, 4, 8, 16, 32);
+  fa: array [1..6] of Char = ('R', 'H', 'S', 'V', 'D', 'A');
+  ma: array [1..6] of Integer = (1, 2, 4, 8, 16, 32);
 var
-  i: integer;
+  i: Integer;
 begin
   Result := '';
   for i := 1 to 6 do
@@ -164,7 +164,7 @@ begin
 end;
 
 procedure TForm1.ListView1ContextPopup(Sender: TObject; MousePos: TPoint;
-  var Handled: boolean);
+  var Handled: Boolean);
 var
   pt: TPoint;
 begin
@@ -194,7 +194,7 @@ begin
   BuildTreeRoot;
 end;
 
-procedure TForm1.txtAddressKeyPress(Sender: TObject; var Key: char);
+procedure TForm1.txtAddressKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -224,7 +224,7 @@ end;
 
 
 procedure TForm1.ListView1Compare(Sender: TObject; Item1, Item2: TListItem;
-  Data: integer; var Compare: integer);
+  Data: Integer; var Compare: Integer);
 begin
   case FSortKey of
     0: Compare := lstrcmp(PChar(Item1.Caption), PChar(Item2.Caption)) * FSortOrder;
@@ -282,9 +282,9 @@ end;
 procedure TForm1.BuildTreeRoot;
 var
   d: DWORD;
-  ch: char;
+  ch: Char;
   ppidl: PItemIDList;
-  buf: array [0..MAX_PATH] of char;
+  buf: array [0..MAX_PATH] of Char;
 begin
   TreeView1.Items.Clear;
   d := GetLogicalDrives;
@@ -388,7 +388,7 @@ begin
   f.Show;
 end;
 
-function TForm1.GetNodePath(Node: TTreeNode): string;
+function TForm1.GetNodePath(Node: TTreeNode): String;
 begin
   if Node.Data = nil then
     Result := GetNodePath(Node.Parent) + '\' + Node.Text
@@ -401,7 +401,7 @@ end;
 procedure TForm1.BuildOneTreeLevel(Parent: TTreeNode);
 var
   sr: TSearchRec;
-  s: string;
+  s: String;
 begin
   s := IncludeTrailingBackslash(GetNodePath(Parent));
   if FindFirst(s + '*.*', faAnyFile, sr) = 0 then
@@ -418,7 +418,7 @@ begin
 end;
 
 procedure TForm1.TreeView1Expanding(Sender: TObject; Node: TTreeNode;
-  var AllowExpansion: boolean);
+  var AllowExpansion: Boolean);
 begin
   if Node.HasChildren and (Node.GetFirstChild = nil) then
     BuildOneTreeLevel(Node);

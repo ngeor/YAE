@@ -8,39 +8,39 @@ uses SysUtils;
 
 type
   TMyDriveData = class
-    Drive: string;
-    constructor Create(ADrive: char);
+    Drive: String;
+    constructor Create(ADrive: Char);
   end;
 
   TMyListItemData = class
   private
-    function GetPath: string;
-    procedure SetPath(const Value: string);
-    function GetExtention: string;
+    function GetPath: String;
+    procedure SetPath(const Value: String);
+    function GetExtention: String;
   public
-    InPath: string;
-    Name: string;
-    Size: integer;
-    Attr: integer;
+    InPath: String;
+    Name: String;
+    Size: Integer;
+    Attr: Integer;
     Time: TDateTime;
-    constructor Create(const AName, AInPath: string; ASize, AAttr: integer;
+    constructor Create(const AName, AInPath: String; ASize, AAttr: Integer;
       ATime: TDateTime); overload;
-    constructor Create(const FullPath: string); overload;
-    property Path: string read GetPath write SetPath;
-    property Extention: string read GetExtention;
+    constructor Create(const FullPath: String); overload;
+    property Path: String read GetPath write SetPath;
+    property Extention: String read GetExtention;
   end;
 
 
-function CompareInt(i1, i2: integer): integer;
-function CompareDateTime(d1, d2: TDateTime): integer;
+function CompareInt(i1, i2: Integer): Integer;
+function CompareDateTime(d1, d2: TDateTime): Integer;
 
-function FormatBytes(t: integer): string;
+function FormatBytes(t: Integer): String;
 
-function HasSubFolders(const Path: string): boolean;
+function HasSubFolders(const Path: String): Boolean;
 
 implementation
 
-function HasSubFolders(const Path: string): boolean;
+function HasSubFolders(const Path: String): Boolean;
 var
   sr: TSearchRec;
 begin
@@ -55,7 +55,7 @@ begin
   end;
 end;
 
-function CompareInt(i1, i2: integer): integer;
+function CompareInt(i1, i2: Integer): Integer;
 begin
   if i1 < i2 then
     Result := -1
@@ -65,7 +65,7 @@ begin
     Result := 0;
 end;
 
-function CompareDateTime(d1, d2: TDateTime): integer;
+function CompareDateTime(d1, d2: TDateTime): Integer;
 begin
   if d1 < d2 then
     Result := -1
@@ -75,15 +75,15 @@ begin
     Result := 0;
 end;
 
-function FormatBytes(t: integer): string;
+function FormatBytes(t: Integer): String;
 begin
   Result := FormatFloat('#,##0', t);
 end;
 
 { TMyListItemData }
 
-constructor TMyListItemData.Create(const AName, AInPath: string;
-  ASize, AAttr: integer; ATime: TDateTime);
+constructor TMyListItemData.Create(const AName, AInPath: String;
+  ASize, AAttr: Integer; ATime: TDateTime);
 begin
   inherited Create;
   Name := AName;
@@ -93,24 +93,24 @@ begin
   Time := ATime;
 end;
 
-constructor TMyListItemData.Create(const FullPath: string);
+constructor TMyListItemData.Create(const FullPath: String);
 begin
   Path := FullPath;
 end;
 
-function TMyListItemData.GetExtention: string;
+function TMyListItemData.GetExtention: String;
 begin
   Result := ExtractFileExt(Name);
   if Result <> '' then
     Result := Copy(Result, 2, Length(Result) - 1);
 end;
 
-function TMyListItemData.GetPath: string;
+function TMyListItemData.GetPath: String;
 begin
   Result := IncludeTrailingBackslash(InPath) + Name;
 end;
 
-procedure TMyListItemData.SetPath(const Value: string);
+procedure TMyListItemData.SetPath(const Value: String);
 begin
   Name := ExtractFileName(Value);
   InPath := ExtractFilePath(Value);
@@ -121,7 +121,7 @@ end;
 
 { TMyDriveData }
 
-constructor TMyDriveData.Create(ADrive: char);
+constructor TMyDriveData.Create(ADrive: Char);
 begin
   Drive := ADrive + ':\';
 end;

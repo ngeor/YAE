@@ -14,13 +14,13 @@ type
   protected
     procedure Execute; override;
   public
-    Path: string;
-    WatchSubTree: boolean;
-    NotifyFilter: integer;
+    Path: String;
+    WatchSubTree: Boolean;
+    NotifyFilter: Integer;
     hWnd: HWND;
     msg2Send: UINT;
-    constructor Create(ahwnd: HWND; amsg2Send: UINT; const aPath: string;
-      aWST: boolean; aNF: integer);
+    constructor Create(ahwnd: HWND; amsg2Send: UINT; const aPath: String;
+      aWST: Boolean; aNF: Integer);
   end;
 
 
@@ -42,7 +42,7 @@ implementation
 { TMonitorThread }
 
 constructor TMonitorThread.Create(ahwnd: HWND; amsg2Send: UINT;
-  const aPath: string; aWST: boolean; aNF: integer);
+  const aPath: String; aWST: Boolean; aNF: Integer);
 begin
   inherited Create(True);
   FreeOnTerminate := False;
