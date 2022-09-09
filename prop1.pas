@@ -24,8 +24,8 @@ type
     procedure FormDeactivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
-    procedure FormKeyPress(Sender: TObject; var Key: char);
-    procedure ListBox1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure ListBox1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure ListBox1Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
@@ -52,7 +52,7 @@ end;
 
 procedure TForm2.SpeedButton1Click(Sender: TObject);
 var
-  sOld, sNew: string;
+  sOld, sNew: String;
 begin
   if Assigned(FOneItem) then
   begin
@@ -69,7 +69,7 @@ begin
   Visible := False;
 end;
 
-procedure TForm2.FormKeyPress(Sender: TObject; var Key: char);
+procedure TForm2.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     SpeedButton1Click(Sender)
@@ -77,9 +77,9 @@ begin
     Visible := False;
 end;
 
-procedure TForm2.ListBox1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
+procedure TForm2.ListBox1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 var
-  i: integer;
+  i: Integer;
 begin
   i := ListBox1.ItemAtPos(Point(x, y), True);
   if (i >= 0) and (i < ListBox1.Items.Count) then
